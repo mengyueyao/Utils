@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.blankj.androidutilcode">
+
+    <!--读写内存-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <!--flashlight-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-feature android:name="android.hardware.camera.flash"/>
+
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <!--location-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!--network-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!--phone-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!--获取手机联系人-->
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>-->
+
+    <!--process-->
+    <application
+        android:name=".UtilsApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/my_app_name"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.ActivityActivity" android:exported="false"/>
+        <activity android:name=".activity.AppActivity" android:exported="false"/>
+        <activity android:name=".activity.CleanActivity" android:exported="false"/>
+        <activity android:name=".activity.DeviceActivity" android:exported="false"/>
+        <activity android:name=".activity.FragmentActivity" android:exported="false"/>
+        <!--<activity android:name=".activities.FlashlightActivity"/>-->
+        <activity android:name=".activity.HandlerActivity" android:exported="false"/>
+        <activity android:name=".activity.ImageActivity" android:exported="false"/>
+        <activity
+            android:name=".activity.KeyboardActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:exported="false"/>
+        <activity android:name=".activity.LocationActivity" android:exported="false"/>
+        <activity android:name=".activity.LogActivity" android:exported="false"/>
+        <activity android:name=".activity.MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.NetworkActivity" android:exported="false"/>
+        <!--<activity android:name=".activities.PermissionActivity"/>-->
+        <activity android:name=".activity.PhoneActivity" android:exported="false"/>
+        <activity android:name=".activity.PinyinActivity" android:exported="false"/>
+        <activity android:name=".activity.ProcessActivity" android:exported="false"/>
+        <activity android:name=".activity.SDCardActivity" android:exported="false"/>
+        <activity android:name=".activity.SnackbarActivity" android:exported="false"/>
+        <activity android:name=".activity.SpannableActivity" android:exported="false"/>
+        <activity android:name=".activity.ToastActivity" android:exported="false"/>
+
+        <service android:name=".service.LocationService" android:exported="false"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.blankj.androidutilcode.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+    </application>
+
+</manifest>
