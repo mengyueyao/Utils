@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'jacoco'
+    id 'maven-publish'
 }
 
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
@@ -75,4 +76,18 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:4.10.3'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.mengyueyao'
+                artifactId = 'utilcode'
+                version = '1.0.0'
+            }
+        }
+    }
 }
